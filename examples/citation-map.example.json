@@ -1,0 +1,8 @@
+{
+  "1:ReferenceFooter:1": [
+    {"text": "Example Journal", "url": "https://example.org/paper"}
+  ],
+  "2:ReferenceFooter:1": [
+    {"text": "Example University", "url": "https://example.org/project"}
+  ]
+}
