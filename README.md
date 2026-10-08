@@ -6,13 +6,13 @@
 
 ## 使用
 
-仓库/显示名为`TroyeXie_PPT_Style`，Skill调用标识为`troye-xie-ppt-style`。将仓库放入技能目录并确保根目录存在`SKILL.md`。已有本地副本时先检查差异，再更新；不要覆盖尚未提交的本地修改。
+仓库/显示名为`TroyeXie_PPT_Style`，Skill调用标识为`troye-xie-ppt-style`。仓库根目录的`SKILL.md`是入口，配套目录应一并保留。
 
 ```bash
-git clone https://github.com/TroyeXie/TroyeXie_PPT_Style.git ~/.codex/skills/troye-xie-ppt-style
+git clone https://github.com/TroyeXie/TroyeXie_PPT_Style.git ./troye-xie-ppt-style
 ```
 
-已有副本可在检查`git status`后使用`git pull --ff-only`，重新加载后使用。其他安装位置应按实际配置调整。
+上面仅将仓库复制到本地，不自动完成安装。按当前使用端的技能加载配置添加该目录；不把某个客户端的隐藏目录当作所有环境的统一路径。已有副本先检查`git status`及本地修改，再使用`git pull --ff-only`更新并重新加载。有关Skill概念可参考[官方说明](https://developers.openai.com/plugins/concepts/skills)。也可直接要求助手读取仓库规范，并提供本轮实际PPT模板。
 
 ### 沿用蓝白学术模板
 
