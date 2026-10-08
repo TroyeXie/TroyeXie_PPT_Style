@@ -1,6 +1,6 @@
 interface:
   display_name: "TroyeXie_PPT_Style"
-  short_description: "以真实素材和证据组织中文汇报，延续模板、精修图文对齐并核验最终PPT"
-  default_prompt: "请使用 $troye-xie-ppt-style，依据我提供的最新PPT、素材和本轮修改意见制作或修订汇报。"
+  short_description: "证据驱动的中文PPT：保留模板、精修图组与引用、核验页序及最终导出"
+  default_prompt: "请使用 $troye-xie-ppt-style，以我提供的最新PPT和本轮意见为准进行制作或修订。按需采用模板profile，明确原文与本人分析，引用仅链接期刊或机构名，核对图注、导航、页码及最终PPTX/PDF。"
 policy:
   allow_implicit_invocation: true
