@@ -3,3 +3,23 @@ __pycache__/
 .DS_Store
 Thumbs.db
 *.tmp
+
+# Task-specific working copies and audit outputs
+/local/
+/private/
+/work/
+/output/
+/outputs/
+/renders/
+
+# This repository distributes style rules, not source assets or font files
+*.[tT][tT][fF]
+*.[oO][tT][fF]
+*.woff
+*.woff2
+*.pptx
+*.pptm
+*.pdf
+*.docx
+*.xlsx
+*.zip
