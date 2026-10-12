@@ -3,7 +3,7 @@ name: troye-xie-ppt-style
 description: 按TroyeXie的制作思维创建、迁移和修订中文答辩、学术组会、成长展示及社会实践PPT。真实素材主导，围绕问题组织证据，沿用用户指定模板，统一图组、导航与引用，执行最小必要修改并核验最终PPTX/PDF。用户提到TroyeXie_PPT_Style或明确沿用此风格时使用，不覆盖其他用户或品牌的规定。
 metadata:
   display-name: TroyeXie_PPT_Style
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # TroyeXie_PPT_Style
@@ -25,6 +25,7 @@ metadata:
 | 学术组会、文献与数据 | [学术汇报](references/academic-presentations.md) |
 | 图组、表格、成长或实践页面 | [常见页面范式](references/layout-patterns.md)；学术页面另读学术规范 |
 | 续改、重排、链接、验收 | [修订与验收](references/revision-and-quality.md) |
+| 校园工作台、场景任务包、应用原型 | [校园工作台](references/campus-workbench.md) |
 
 只加载与当前任务有关的模块。制作PPT不自动启动完整系统综述、数据重分析或申请材料撰写。
 

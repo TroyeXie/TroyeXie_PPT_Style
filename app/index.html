@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="面向课程汇报、组会与文献分享的PPT制作工作台。选择场景、适配样式、整理来源，导出可编辑的演示文稿。">
+  <meta name="color-scheme" content="light">
+  <title>求是·汇报 · 校园PPT工作台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app"></div>
+  <div id="modal-root"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <input id="project-file" type="file" accept=".json,.txt,.md" hidden>
+  <input id="template-file" type="file" accept=".pptx" hidden>
+  <input id="image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+  <script src="vendor/jszip.min.js"></script>
+  <script src="vendor/pptxgen.min.js"></script>
+  <script src="core.js"></script>
+  <script src="demo.js"></script>
+  <script src="pptx.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
