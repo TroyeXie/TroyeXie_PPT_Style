@@ -41,7 +41,14 @@
     const e=document.getElementById('save-state'); if(e)e.textContent=saveState;
   }
   function toast(message) { const t=document.getElementById('toast');t.textContent=message;t.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('visible'),5000); }
-  function mutate(callback, light) { remember();callback();persist();if(light){renderPreview();renderList();renderStats();const undo=document.querySelector('[data-action="undo"]');if(undo)undo.disabled=false;if(leftTab==='check')renderSettings();}else renderAll(); }
+  function mutate(callback, light) {
+    const previousSelected=selected;
+    remember();
+    try { callback();project=Core.normalizeProject(project); }
+    catch(error) { project=history.pop();selected=Math.max(0,Math.min(previousSelected,project.slides.length-1));renderAll();toast(error.message||'修改未能保存，请检查输入。');return; }
+    persist();
+    if(light){renderPreview();renderList();renderStats();const undo=document.querySelector('[data-action="undo"]');if(undo)undo.disabled=false;if(leftTab==='check')renderSettings();}else renderAll();
+  }
   function selectSlide(index) { selected=Math.max(0,Math.min(index,project.slides.length-1));renderPreview();renderList();renderEditor(); }
   function options(values,current) { return Object.entries(values).map(([value,label])=>'<option value="'+h(value)+'"'+(value===current?' selected':'')+'>'+h(label)+'</option>').join(''); }
   function field(label,content,hint) { return '<label class="field"><span class="field-label">'+label+'</span>'+content+(hint?'<p class="hint">'+hint+'</p>':'')+'</label>'; }
@@ -246,7 +253,7 @@
   });
   document.addEventListener('change',event=>{
     const e=event.target;
-    if(e.dataset.project){const key=e.dataset.project;mutate(()=>project[key]=key==='duration'?Math.max(1,Math.min(120,Number(e.value)||10)):e.value);}
+    if(e.dataset.project){const key=e.dataset.project;mutate(()=>project[key]=key==='duration'?Math.max(1,Math.min(120,Number(e.value)||10)):e.value,true);}
     else if(e.dataset.theme){mutate(()=>project.theme[e.dataset.theme]=e.value);}
     else if(e.dataset.slide){const key=e.dataset.slide;mutate(()=>{currentSlide()[key]=key==='body'?e.value.split('\n').map(x=>x.trim()).filter(Boolean):key==='durationSec'?Math.max(0,Math.min(1800,Number(e.value)||0)):e.value;if(key==='type'&&e.value==='comparison'&&(!currentSlide().columns||currentSlide().columns.length<2))currentSlide().columns=[{title:'左栏',body:[]},{title:'右栏',body:[]}];},key!=='type');if(key==='type')renderEditor();}
     else if(e.dataset.column!==undefined){mutate(()=>{if(!currentSlide().columns||currentSlide().columns.length<2)currentSlide().columns=[0,1].map(i=>currentSlide().columns?.[i]||{title:i?'右栏':'左栏',body:[]});const c=currentSlide().columns[Number(e.dataset.column)];c[e.dataset.columnKey]=e.dataset.columnKey==='body'?e.value.split('\n').filter(x=>x.trim()):e.value;},true);}
