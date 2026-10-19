@@ -1,0 +1,86 @@
+{
+  "document_title": "山海同心社会实践总结册（虚构示例）",
+  "preset": "formal-red",
+  "fonts": {},
+  "title": {
+    "groups": ["山海同心", "青春同行"]
+  },
+  "team": "某大学医学院赴某地区暑期社会实践团（虚构示例）",
+  "second_title": "四维实践·以行作答",
+  "hero": {
+    "placeholder": "基地共建照片",
+    "caption": "实践平台共建，校地协同育人"
+  },
+  "intro": {
+    "heading": "立足基层，协同育人",
+    "body": "以基层健康需求为导向，融合志愿服务、社会调研、专业学习与国情研学，形成可持续的实践育人路径。"
+  },
+  "teacher_heading": "专家领航，多学科协同育人",
+  "teachers": [
+    {"name": "教师甲", "role": "实践指导教师", "expertise": "临床医学"},
+    {"name": "教师乙", "role": "实践指导教师", "expertise": "公共卫生"},
+    {"name": "教师丙", "role": "实践指导教师", "expertise": "医学教育"}
+  ],
+  "leader_heading": "殷殷嘱托，厚植专业报国情怀",
+  "leaders": [
+    {"name": "领导甲", "message": "扎根基层，在服务群众中增长才干，以专业所长回应社会需要。"},
+    {"name": "领导乙", "message": "坚持知行合一，注重调查研究，将实践收获转化为成长动力。"}
+  ],
+  "media": {
+    "heading": "主流媒体聚焦，记录实践成果",
+    "total": 18,
+    "national": 5,
+    "provincial": 4,
+    "unit_label": "条报道（虚构）",
+    "cards": [
+      {"label": "国家级平台甲", "placeholder": "报道截图"},
+      {"label": "国家级平台乙", "placeholder": "报道截图"},
+      {"label": "省级平台丙", "placeholder": "报道截图"}
+    ]
+  },
+  "modules": [
+    {
+      "title": "医疗服务，回应基层健康需求",
+      "value": "健康惠民·仁术笃行",
+      "body": "围绕健康咨询、科普宣教与急救培训开展服务，将专业所学转化为面向基层的具体行动。",
+      "highlights": ["健康咨询、科普宣教与急救培训"],
+      "bold_phrases": ["健康咨询、科普宣教与急救培训"],
+      "photos": [
+        {"placeholder": "健康服务照片", "caption": "健康咨询"},
+        {"placeholder": "科普活动照片", "caption": "急救培训"}
+      ]
+    },
+    {
+      "title": "社会调研，服务区域能力建设",
+      "value": "察情问需·协同发展",
+      "body": "面向居民与专业人员开展问卷、访谈，梳理服务需求与改进路径。完成团队调研报告1篇。",
+      "keep_together": ["完成团队调研报告1篇。"],
+      "photos": [
+        {"placeholder": "问卷访谈照片", "caption": "居民需求调查"},
+        {"placeholder": "专家访谈照片", "caption": "专业人员访谈"}
+      ]
+    },
+    {
+      "title": "专业学习，锤炼服务社会本领",
+      "value": "德术并修·知行相济",
+      "body": "在专家指导下参加临床观摩、专题研讨与学术交流，深化专业认知，增强跨学科合作能力。",
+      "photos": [
+        {"placeholder": "带教学习照片", "caption": "专家带教"},
+        {"placeholder": "学术交流照片", "caption": "专题研讨"}
+      ]
+    },
+    {
+      "title": "国情研学，厚植家国责任担当",
+      "value": "铸魂固本·赓续薪火",
+      "body": "走访教育基地，与当地青年交流学习，在实地研学中理解区域发展与基层建设，坚定服务社会的责任担当。",
+      "photos": [
+        {"placeholder": "国情研学照片", "caption": "教育基地研学"},
+        {"placeholder": "青年交流照片", "caption": "校地青年交流"}
+      ]
+    }
+  ],
+  "awards": [
+    {"context": "某地区大学生社会实践成果展示活动（虚构示例）", "name": "优秀实践案例"},
+    {"context": "某年度社会实践交流活动（虚构示例）", "name": "创新实践项目"}
+  ]
+}

@@ -1,0 +1,5 @@
+# Tested with Python 3.12; keep fonts and project assets local.
+reportlab==4.4.9
+Pillow==12.3.0
+pypdf==6.10.0
+pypdfium2==5.14.0

@@ -1,0 +1,4 @@
+interface:
+  display_name: "社会实践总结册"
+  short_description: "从真实素材组织精练图文，生成可复现初稿并核验矢量总结册，支持最小范围续改"
+  default_prompt: "请使用 $social-practice-booklet，依据最新材料和参考册制作社会实践总结册，精炼文案、丰富图文，交付可编辑源与核验后的PDF。"
