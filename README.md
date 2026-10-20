@@ -1,6 +1,6 @@
 # TroyeXie_PPT_Style
 
-**v2.0.0** · 用于中文学术组会、论文解读、答辩、成长展示与社会实践PPT的可复用制作规范。
+**v2.1.0** · 用于中文学术组会、论文解读、答辩、成长展示与社会实践PPT的可复用制作规范。
 
 核心是**真实素材支撑叙事，围绕问题组织证据，沿用已确认模板，统一图组与光学对齐，逐轮精修并核验最终文件**。本仓库不是研究结论库，也不分发个人PPT、字体或校标。
 
@@ -34,15 +34,19 @@ git clone https://github.com/TroyeXie/TroyeXie_PPT_Style.git ./troye-xie-ppt-sty
 | [视觉语言](references/visual-language.md) | 字体、正文边界、导航、光学对齐和多面板 |
 | [常见页面范式](references/layout-patterns.md) | 成长、会议、实践、美育等既有页面范式 |
 | [修订与验收](references/revision-and-quality.md) | 最小修改、页序、真实点击范围、渲染和素材保护 |
+| [渲染后边界检查](references/rendered-layout-checks.md) | 区分文本框与可见边界，核对成组对齐、分布和留白 |
+| [媒体与渲染](references/media-and-rendering.md) | 字体异常、时间剪辑与画面裁剪、音轨衔接和目标软件试播 |
 | [模板参数说明](references/template-profile.md) | 三层复用方式与脚本使用范围 |
 | [clinical-academic.json](profiles/clinical-academic.json) | 可选蓝白学术模板的字体、字号及几何配置 |
 | [inspect_pptx.py](scripts/inspect_pptx.py) | 原有只读结构盘点，默认不导出正文 |
-| [lint_pptx_style.py](scripts/lint_pptx_style.py) | 新增逻辑页序、页脚锚点及显式样式检查 |
+| [lint_pptx_style.py](scripts/lint_pptx_style.py) | 逻辑页序、页脚锚点及显式样式检查 |
+| [check_rendered_layout.py](scripts/check_rendered_layout.py) | 只读核对已有边界测量与排版约束，不负责渲染或识别字形 |
 | [引用映射示例](examples/citation-map.example.json) | 用合成名称示范精确文本/目标核对 |
-| [测试](tests/test_lint_pptx_style.py) | 纯合成OOXML回归测试 |
+| [边界测量](examples/rendered-layout.measurements.example.json) / [约束示例](examples/rendered-layout.contracts.example.json) | 无真实文字或素材的合成坐标示例 |
+| [结构测试](tests/test_lint_pptx_style.py) / [边界测试](tests/test_rendered_layout.py) | 纯合成OOXML与坐标回归测试 |
 | [CHANGELOG.md](CHANGELOG.md) | 版本与迁移说明 |
 
-## 本次新增的核心规则
+## 核心规范
 
 **内容**：以科学问题组织，不按文件夹编号罗列；原文已完成、本人再分析和待检验问题分开；图下用一句清楚结论；模型页说明病理状态、构建方式和拟测表型。
 
@@ -52,18 +56,25 @@ git clone https://github.com/TroyeXie/TroyeXie_PPT_Style.git ./troye-xie-ppt-sty
 
 **续改**：从最新文件继续，只做必要改动；移页同步更新导航、小节、页码、备注及PDF。原始图像和有效分析不因换字体被重算或重绘成假原件。
 
+**模板与间距**：美化保留背景、形状、重点色、字体层级及封尾；混合字号按实际字形底端检查。数字与说明先统一组内间距，再按整组分布；承托色块要有上下留白，并与页脚元素保持净距，不能压成贴字的细条。
+
+**证据与媒体**：叙述突出执行者真实贡献，保留专业指导和分工；奖项信息顺序一致，标题与图片新顺序相符。正式反馈展示关键正文及必要上下文。音视频分别检查时间剪辑、画面裁剪、音轨、循环和翻页；字体错映、可见裁切及播放效果须实际验证。
+
 ## 只读检查与测试
 
-新检查器使用Python 3.10+标准库，无需联网或安装PPT库：
+检查器使用Python 3.10+标准库，无需联网或安装PPT库：
 
 ```bash
 python scripts/lint_pptx_style.py presentation.pptx
 python scripts/lint_pptx_style.py presentation.pptx --profile profiles/clinical-academic.json
 python scripts/lint_pptx_style.py presentation.pptx --citation-map local/citation-map.json
+python scripts/check_rendered_layout.py examples/rendered-layout.measurements.example.json examples/rendered-layout.contracts.example.json
 python -m unittest discover -s tests -v
 ```
 
 检查器不修改输入。退出码0/1/2分别表示无已实现项错误/发现错误/读取失败。精确映射按最终逻辑页码填写；示例中的假期刊不能直接用于真实文档。
+
+边界检查器接收已归一为pt的对象框与可见边界，核对底端对齐、并集中心、成对间距、整组分布、内边距和净距。它不会自动从PPTX、图片或PDF提取测量；使用方法与限制见[边界检查说明](references/rendered-layout-checks.md)。
 
 **结构检查不是视觉或事实认证。**母版继承、实际字体、图像裁剪、公式缺字、PDF点击矩形和媒体播放需要另行核查。测试仅覆盖脚本逻辑，仓库没有上传真实演示作为测试样本。
 

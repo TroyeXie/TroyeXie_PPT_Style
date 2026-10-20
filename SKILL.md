@@ -3,7 +3,7 @@ name: troye-xie-ppt-style
 description: 按TroyeXie的制作思维创建、迁移和修订中文答辩、学术组会、成长展示及社会实践PPT。真实素材主导，围绕问题组织证据，沿用用户指定模板，统一图组、导航与引用，执行最小必要修改并核验最终PPTX/PDF。用户提到TroyeXie_PPT_Style或明确沿用此风格时使用，不覆盖其他用户或品牌的规定。
 metadata:
   display-name: TroyeXie_PPT_Style
-  version: "2.0.0"
+  version: "2.1.0"
 ---
 
 # TroyeXie_PPT_Style
@@ -25,6 +25,8 @@ metadata:
 | 学术组会、文献与数据 | [学术汇报](references/academic-presentations.md) |
 | 图组、表格、成长或实践页面 | [常见页面范式](references/layout-patterns.md)；学术页面另读学术规范 |
 | 续改、重排、链接、验收 | [修订与验收](references/revision-and-quality.md) |
+| 混合字号对齐、整组居中、成对间距 | [渲染后边界检查](references/rendered-layout-checks.md) |
+| 音视频、动态背景、字体或原生渲染异常 | [媒体与渲染](references/media-and-rendering.md) |
 
 只加载与当前任务有关的模块。制作PPT不自动启动完整系统综述、数据重分析或申请材料撰写。
 
@@ -33,6 +35,8 @@ metadata:
 实读最新文件和参考页，确认受众、核心问题、页数/时长、保留内容、输出格式和素材权限。制作轻量的私有素材表：来源、证明什么、实际阅读/分析层级、必须保留区域、拟用页面。不要仅凭上轮“已完成”声明推断当前文件存在。
 
 把反馈分为全局格式、指定页改文、换图、链接范围、删并移页。使用“原页—新页”映射；文件内的slide编号不一定等于演示顺序。先处理不依赖缺件的部分，只询问影响正确性或真实交付的缺项。
+
+“美化”默认保留已确认的背景、形状、重点色、字体层级、封面与封底。先修内容关系、对齐和留白，不以大片空白或全套重建替代局部修订；用户明确要求重构时再调整这些边界。
 
 ## 页面构造
 
@@ -70,9 +74,10 @@ metadata:
 ```bash
 python scripts/inspect_pptx.py presentation.pptx --output inventory.json
 python scripts/lint_pptx_style.py presentation.pptx --profile profiles/clinical-academic.json
+python scripts/check_rendered_layout.py measurements.json contracts.json
 ```
 
-第二项仅在明确选用该profile时使用；精确链接校验可另传引用映射，见[模板参数说明](references/template-profile.md)。这些工具不能验证事实、所有继承样式、真实字体渲染、裁图或播放效果。
+第二项仅在明确选用该profile时使用；精确链接校验可另传引用映射，见[模板参数说明](references/template-profile.md)。第三项只检查用户提供的渲染后边界与约束，不负责生成测量或识别真实字形，见[检查说明](references/rendered-layout-checks.md)。这些工具不能验证事实、所有继承样式、真实字体渲染、裁图或播放效果。
 
 导出后重新打开/渲染最终文件：全页联系表看节奏，所有改动页放大检查，密集图与页底链接重点核验。PDF来自最终PPTX；必要时核对PDF真实点击矩形，不能仅检查PPT文字。只报告实际做过的测试。
 

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "unit": "pt",
+  "objects": [
+    {"id": "left_note", "page": 1, "frame": [0, 0, 120, 32], "ink": [5, 5, 110, 24]},
+    {"id": "right_note", "page": 1, "frame": [140, 0, 120, 32], "ink": [145, 13, 90, 16]},
+    {"id": "panel", "page": 1, "frame": [0, 43, 260, 200]},
+    {"id": "number_a", "page": 1, "frame": [85, 62, 90, 26], "ink": [90, 65, 80, 20]},
+    {"id": "label_a", "page": 1, "frame": [80, 88, 100, 16], "ink": [85, 91, 90, 10]},
+    {"id": "number_b", "page": 1, "frame": [85, 122, 90, 26], "ink": [90, 125, 80, 20]},
+    {"id": "label_b", "page": 1, "frame": [80, 148, 100, 16], "ink": [85, 151, 90, 10]},
+    {"id": "number_c", "page": 1, "frame": [85, 182, 90, 26], "ink": [90, 185, 80, 20]},
+    {"id": "label_c", "page": 1, "frame": [80, 208, 100, 16], "ink": [85, 211, 90, 10]},
+    {"id": "banner", "page": 1, "frame": [0, 260, 260, 48], "ink": [0, 260, 260, 48]},
+    {"id": "banner_text", "page": 1, "frame": [12, 268, 236, 32], "ink": [20, 273, 220, 22]},
+    {"id": "footer", "page": 1, "frame": [0, 320, 260, 8], "ink": [0, 320, 260, 8]}
+  ]
+}

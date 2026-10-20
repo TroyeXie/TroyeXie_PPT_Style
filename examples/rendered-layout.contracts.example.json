@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "tolerance_pt": 0.5,
+  "checks": [
+    {"id": "note_bottoms", "kind": "align", "edge": "bottom", "groups": [["left_note"], ["right_note"]]},
+    {"id": "statistics_center", "kind": "center", "members": ["number_a", "label_a", "number_b", "label_b", "number_c", "label_c"], "container": "panel", "axis": "both"},
+    {"id": "value_caption_gaps", "kind": "pair_gaps", "axis": "y", "min_pt": 4, "pairs": [{"before": ["number_a"], "after": ["label_a"]}, {"before": ["number_b"], "after": ["label_b"]}, {"before": ["number_c"], "after": ["label_c"]}]},
+    {"id": "statistics_distribution", "kind": "distribute", "axis": "y", "mode": "gaps", "min_pt": 16, "groups": [["number_a", "label_a"], ["number_b", "label_b"], ["number_c", "label_c"]]},
+    {"id": "banner_center", "kind": "center", "members": ["banner_text"], "container": "banner", "axis": "both"},
+    {"id": "banner_padding", "kind": "padding", "members": ["banner_text"], "container": "banner", "min_pt": 8},
+    {"id": "footer_clearance", "kind": "clearance", "axis": "y", "before": ["banner"], "after": ["footer"], "min_pt": 8}
+  ]
+}
