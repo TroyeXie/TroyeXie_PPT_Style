@@ -1,5 +1,6 @@
 """Synthetic OOXML fixtures only: no private presentations or licensed assets."""
 import importlib.util
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -85,6 +86,17 @@ class StyleTests(unittest.TestCase):
         before = self.path.read_bytes()
         lint.audit(self.path)
         self.assertEqual(before, self.path.read_bytes())
+    def test_clinical_profile_allows_embedded_font_parts(self):
+        self.make()
+        with ZipFile(self.path, 'a') as z:
+            z.writestr('ppt/fonts/synthetic.fntdata', b'synthetic-not-a-real-font')
+        profile = json.loads((SCRIPT.parents[1] / 'profiles/clinical-academic.json').read_text(encoding='utf-8'))
+        self.assertNotIn('embedded_font_present', self.codes(profile=profile))
+    def test_explicit_font_prohibition_remains_supported(self):
+        self.make()
+        with ZipFile(self.path, 'a') as z:
+            z.writestr('ppt/fonts/synthetic.fntdata', b'synthetic-not-a-real-font')
+        self.assertIn('embedded_font_present', self.codes(profile={'forbid_embedded_fonts': True}))
 
 if __name__ == '__main__':
     unittest.main()

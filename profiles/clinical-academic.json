@@ -1,6 +1,6 @@
 {
   "profile_id": "clinical-academic-v2",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "scope": "明确选用已确认的蓝白学术模板时使用；不自动覆盖其他模板",
   "units": "inches; font sizes in points",
   "slide_size": {"width": 13.3333333333, "height": 7.5},
@@ -35,6 +35,6 @@
   "alignment": {"title_to_rule": "left", "main_content_to_logo": "right", "references_to_page_number": "visual_bottom", "image_caption": "same_horizontal_center"},
   "citation": {"link_scope": "journal_or_institution_name_only", "anchor_bold": true, "anchor_underline": false, "preserve_full_title": true, "data_prefix": "数据来源：", "official_prefix": "官方来源：", "exclude_status_from_link": true},
   "text": {"fullwidth_slash_replacement": "/", "avoid_one_or_two_character_last_line": true, "gene_names_italic": false},
-  "forbid_embedded_fonts": true,
-  "note": "以上坐标为一个已确认模板的测量值，不包含logo或母版资源。字号/规则可独立继承；不同尺寸或不同母版须重新量取。脚本只检查有明确支持的字段，不模拟Office字体继承或视觉渲染。"
+  "forbid_embedded_fonts": false,
+  "note": "以上坐标为一个已确认模板的测量值，不包含logo或母版资源。字号/规则可独立继承；不同尺寸或不同母版须重新量取。脚本只检查有明确支持的字段，不模拟Office字体继承或视觉渲染。文档内嵌入须符合许可并经最后保存后核验；false不代表已验证许可或缺字体环境。"
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "自然科学基金申请书"
+  short_description: "围绕科学问题组织自然科学基金申请书，保留模板并核对证据、图注、字数与分页"
+  default_prompt: "请使用 $natural-science-grant，依据本轮申报指南、最新申请书和评审意见完善科学逻辑、文字与排版，并交付核验后的文件。"

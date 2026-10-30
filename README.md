@@ -1,6 +1,6 @@
 # TroyeXie_PPT_Style
 
-**v2.1.0** · 用于中文学术组会、论文解读、答辩、成长展示与社会实践PPT的可复用制作规范。
+**v2.2.0** · 用于中文学术组会、论文解读、基金评审、答辩、成长展示与社会实践PPT的可复用制作规范。
 
 核心是**真实素材支撑叙事，围绕问题组织证据，沿用已确认模板，统一图组与光学对齐，逐轮精修并核验最终文件**。本仓库不是研究结论库，也不分发个人PPT、字体或校标。
 
@@ -30,6 +30,7 @@ git clone https://github.com/TroyeXie/TroyeXie_PPT_Style.git ./troye-xie-ppt-sty
 |---|---|
 | [SKILL.md](SKILL.md) | 工作流入口与任务路由 |
 | [叙事与证据](references/narrative-and-evidence.md) | 事实—贡献—价值、状态和素材选择 |
+| [基金评审PPT](references/grant-review-presentations.md) | 重要性—缺口—用途、原申请书图件、短引和最新提交版 |
 | [学术汇报](references/academic-presentations.md) | 原文/再分析/计划区分、来源、图注与模型页 |
 | [视觉语言](references/visual-language.md) | 字体、正文边界、导航、光学对齐和多面板 |
 | [常见页面范式](references/layout-patterns.md) | 成长、会议、实践、美育等既有页面范式 |
@@ -50,7 +51,7 @@ git clone https://github.com/TroyeXie/TroyeXie_PPT_Style.git ./troye-xie-ppt-sty
 
 **内容**：以科学问题组织，不按文件夹编号罗列；原文已完成、本人再分析和待检验问题分开；图下用一句清楚结论；模型页说明病理状态、构建方式和拟测表型。
 
-**引用**：完整题名保留在页底；本人分析加“数据来源：”；期刊/机构名加粗无下划线，只有名称可点击。题名、年份、前缀、标点及Reviewed Preprint/v2不进入点击范围。
+**引用**：文献精读保留完整题名；基金评审可沿用认可的作者—期刊—年份短引，本人分析可突出数据登录号。期刊/机构名加粗无下划线，只有名称或约定的数据编号可点击；年份、前缀、标点及发表状态不进入点击范围。
 
 **排版**：标题与横线左对齐；在适用模板中内容右界对齐校标右界、引用末行对齐页码底部；图与图注共享中心；先去掉多余强制换行和孤字，再考虑调整字号。
 
@@ -80,7 +81,7 @@ python -m unittest discover -s tests -v
 
 ## 资源与隐私
 
-数值profile不是模板文件。实际使用时仍需用户提供最新PPT及授权素材；字体只在本地使用，不随仓库、快照或交付ZIP分发。私人分析、论文PDF、Figure截图、校标、原始数据和含敏感文本的QA留在项目工作区。修改风格规范不自动授权访问或公开其他资料。
+数值profile不是模板文件。实际使用时仍需用户提供最新PPT及授权素材；独立字体文件不随仓库或交付ZIP分发；用户文档可按许可嵌入，并在最后一次保存后核对真实部件与字形。私人分析、论文PDF、Figure截图、校标、原始数据和含敏感文本的QA留在项目工作区。修改风格规范不自动授权访问或公开其他资料。
 
 ## 社会实践总结册子技能
 
@@ -89,3 +90,18 @@ python -m unittest discover -s tests -v
 > 请使用 $social-practice-booklet，依据最新材料和参考册制作社会实践总结册，精炼文案、丰富图文，交付可复现源和核验后的PDF。
 
 两页红金版式是可选起点，不覆盖本轮模板。字体、校标和真实团队素材由使用者在本地提供，公共包不包含本次私人材料。
+
+## 自然科学基金申请书子技能
+
+新增可独立安装的 [natural-science-grant](skills/natural-science-grant/SKILL.md)，用于国家、省级及研究生自然科学基金申请书的起草、修订、模板排版与提交前复核。包含科学逻辑、摘要/关键词、AI方法定位、前期基础归属、图注首行随图、字数统计口径、字体便携及最后保存后的核验。
+
+> 请使用 $natural-science-grant，以当年指南、空白模板和我指定的最新稿为准，完善科学问题与研究内容，并保持模板、核对摘要字数和图文分页。
+
+独立安装时仅选择`skills/natural-science-grant`并保留其配套文件。字体、具体研究结论、真实申请书和个人信息不随技能分发。默认自动发现，不要求每次显式调用。只读结构盘点与合成测试：
+
+```bash
+python skills/natural-science-grant/scripts/audit_docx.py application.docx --output local/audit.json
+python -m unittest discover -s skills/natural-science-grant/tests -v
+```
+
+盘点器默认不导出正文，不认证真实分页、字数合规、字体许可或科学事实；这些仍需实际文档及来源复核。某次400字、20页、具体字体或数据图语言属于本轮配置，不作为所有基金的硬规则。
